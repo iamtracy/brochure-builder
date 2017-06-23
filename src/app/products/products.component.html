@@ -1,7 +1,14 @@
 <div class="container">
-  <div class="row" *ngFor="let product of products">
-    <div class="card card-block">
-      <h4 class="card-title">{{ product.title }}</h4>
-    </div>
+  <div fxLayout="column">
+    <md-card class="card" *ngFor="let product of products">
+      <div [fxLayout]="direction">
+        <md-card-content>
+          <p>{{product.title}}</p>
+        </md-card-content>
+        <md-card-actions>
+          <button md-raised-button>Raised button</button>
+        </md-card-actions>
+      </div>
+    </md-card>
   </div>
 </div>

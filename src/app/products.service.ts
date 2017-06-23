@@ -7,9 +7,11 @@ export class ProductsService {
 
   constructor(private http: Http) { }
 
-  // Get all posts from the API
   getAllProducts() {
     return this.http.get('http://localhost:3000/products')
-      .map(res => res.json());
+      .map(res => {
+        return res.json()}
+      );
   }
+
 }
