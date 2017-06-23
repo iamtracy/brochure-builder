@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import APP_ROUTES from './header/app-routes.module';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MdMenuModule } from '@angular/material';
 import 'hammerjs';
@@ -16,19 +18,14 @@ import { ProductsComponent } from './products/products.component';
 
 import { ProductsService } from './products.service';
 import { HeaderComponent } from './header/header.component';
-
-
-const ROUTES = [{
-    path: '',
-    component: ProductsComponent
-  }
-];
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    HeaderComponent
+    HeaderComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +36,7 @@ const ROUTES = [{
     MdCardModule,
     MdButtonModule,
     FlexLayoutModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]
