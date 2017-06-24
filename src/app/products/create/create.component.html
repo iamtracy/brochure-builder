@@ -1,0 +1,22 @@
+<div>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" id="location" class="form-control" formControlName="location">
+    </div>
+    <div class="form-group">
+      <label for="productName">Product Name</label>
+      <input type="text" id="productName" class="form-control" formControlName="productName">
+    </div>
+    <div class="form-group">
+      <label for="website">Website Link</label>
+      <input type="text" id="website" class="form-control" formControlName="website">
+    </div>
+    <div class="form-group">
+      <label for="logo">Logo</label>
+      <input type="text" id="logo" class="form-control" formControlName="logo">
+    </div>
+    <!--[disabled]="!createForm.valid"-->
+    <button type="submit" md-raised-button>Sign Up</button>
+  </form>
+</div>
