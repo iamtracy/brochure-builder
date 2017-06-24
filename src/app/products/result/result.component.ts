@@ -20,4 +20,11 @@ export class ResultComponent implements OnInit {
       });
   }
 
+  onDelete(index) {
+    const id = this.products[index]._id;
+    this.products.splice(index, 1);
+    this.productsService.deleteProduct(id)
+        .subscribe(res => console.log(res))
+  }
+
 }

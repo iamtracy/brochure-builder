@@ -1,5 +1,5 @@
 <div fxLayout="column">
-  <md-card class="card" *ngFor="let product of products">
+  <md-card class="card" *ngFor="let product of products; let i = index;">
     <md-card-content>
       <p>{{product.city}}</p>
       <p>{{product.productName}}</p>
@@ -7,7 +7,7 @@
       <p>{{product.logo}}</p>
     </md-card-content>
     <md-card-actions>
-      <button md-raised-button>Raised button</button>
+      <button md-raised-button (click)="onDelete(i)">Delete</button>
     </md-card-actions>
   </md-card>
 </div>

@@ -1,8 +1,7 @@
 <md-toolbar>
-  <button md-button [mdMenuTriggerFor]="menu">Menu</button>
-  <md-menu #menu="mdMenu">
-    <button md-menu-item [routerLink]="['/']">Products</button>
-    <button md-menu-item [routerLink]="['/register']">Register</button>
-    <button md-menu-item [routerLink]="['/create']">Create</button>
-  </md-menu>
+  <div class="button-row">
+    <button md-button [routerLink]="['/']">Products</button>
+    <button md-button [routerLink]="['/register']">Register</button>
+    <button md-button [routerLink]="['/create']">Create</button>
+  </div>
 </md-toolbar>
