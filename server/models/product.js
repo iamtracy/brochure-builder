@@ -1,14 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var mongooseUniqueValidator = require('mongoose-unique-validator');
 
+// , required: true
 var schema = new Schema({
-  location: { type: String, required: true },
-  productName: { type: String, required: true },
-  website: { type: String, required: true },
-  logo: { type: String, required: true, unique: true }
+  city: { type: String },
+  productName: { type: String },
+  website: { type: String },
+  logo: { type: String }
 });
-
-schema.plugin(mongooseUniqueValidator);
 
 module.exports = mongoose.model('Product', schema);

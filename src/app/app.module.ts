@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import APP_ROUTES from './app-routes';
+import { routing } from './app-routes';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MdToolbarModule } from '@angular/material';
@@ -43,7 +43,7 @@ import { CreateComponent } from './products/create/create.component';
     MdCardModule,
     MdButtonModule,
     FlexLayoutModule,
-    RouterModule.forRoot(APP_ROUTES)
+    routing
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]

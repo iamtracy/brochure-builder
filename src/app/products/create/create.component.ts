@@ -16,22 +16,21 @@ export class CreateComponent implements OnInit {
 
   onSubmit() {
     const newProduct = new Product(
-      this.createForm.value.location, 
+      this.createForm.value.city, 
       this.createForm.value.productName,
       this.createForm.value.website,
       this.createForm.value.logo
     );
-    this.productService.createProduct(newProduct);
+    this.productService
+      .createProduct(newProduct)
+      .subscribe(res => console.log(res))
   }
 
   ngOnInit() {
     this.createForm = new FormGroup({
-            location: new FormControl(null, Validators.required),
+            city: new FormControl(null, Validators.required),
             productName: new FormControl(null, Validators.required),
-            website: new FormControl(null, [
-                Validators.required,
-                Validators.pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
-            ]),
+            website: new FormControl(null, Validators.required),
             logo: new FormControl(null, Validators.required)
         })
   }

@@ -8,7 +8,6 @@ var Product = require('../models/product');
 
 //get all products
 router.get('/', (req, res, next) => {
-  // .populate('user', 'firstName')
   Product.find()
     .exec(function(err, messages) {
       if (err) {
@@ -18,21 +17,21 @@ router.get('/', (req, res, next) => {
         });
       }
       res.status(200).json({
-        message: 'Get message successful',
+        message: 'Get product successful',
         obj: messages
       });
     });
 });
 
-
+//create new product
 router.post('/', function(req, res, next) {
-  var newProduct = new Product({
-    location: req.body.logo,
+  const newProduct = new Product({
+    city: req.body.city,
     productName: req.body.productName,
     website: req.body.website,
     logo: req.body.logo
   });
-  user.save(function(err, result) {
+  newProduct.save(function(err, result) {
     if (err) {
       return res.status(500).json({
         title: 'An error occured',
@@ -40,8 +39,9 @@ router.post('/', function(req, res, next) {
       });
     }
     res.status(201).json({
-      message: 'User created',
-      obj: result
+      message: 'Product created',
+      obj: result,
+      foo: req.body
     });
   });
 });
