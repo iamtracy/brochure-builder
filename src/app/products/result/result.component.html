@@ -1,4 +1,4 @@
-<div fxLayout="column">
+<div fxLayout="column" *ngIf="productsPresent">
   <md-card class="card" *ngFor="let product of products; let i = index;">
     <md-card-content>
       <p>{{product.city}}</p>
@@ -10,4 +10,7 @@
       <button md-raised-button (click)="onDelete(i)">Delete</button>
     </md-card-actions>
   </md-card>
+</div>
+<div fxLayout="column" *ngIf="!productsPresent && !isLoading">
+  <p>There are no products to display</p>
 </div>
