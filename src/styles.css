@@ -3,6 +3,18 @@
 .container {
   margin-top: 1.5rem;
 }
+section {
+  margin: 2rem 0;
+}
 .active {
   background: #d7d7d7;
+}
+.cards {
+  display: flex;
+  flex-direction: row;
+}
+.card {
+  max-width: 20rem;
+  width: 100%;
+  margin-bottom: 1rem;
 }

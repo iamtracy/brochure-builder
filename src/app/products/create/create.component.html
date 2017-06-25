@@ -1,21 +1,42 @@
-<div>
-  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="city">Location</label>
-      <input type="text" id="city" class="form-control" formControlName="city">
-    </div>
-    <div class="form-group">
-      <label for="productName">Product Name</label>
-      <input type="text" id="productName" class="form-control" formControlName="productName">
-    </div>
-    <div class="form-group">
-      <label for="website">Website Link</label>
-      <input type="text" id="website" class="form-control" formControlName="website">
-    </div>
-    <div class="form-group">
-      <label for="logo">Logo</label>
-      <input type="text" id="logo" class="form-control" formControlName="logo">
-    </div>
-    <button type="submit" md-raised-button [disabled]="!createForm.valid">Add Product</button>
-  </form>
-</div>
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <md-input-container class="example-full-width">
+          <input mdInput placeholder="City" type="text" id="city" class="form-control" formControlName="city">
+        </md-input-container>
+      </td>
+      <td>
+        <md-input-container class="example-full-width">
+          <input mdInput placeholder="Product Name" type="text" id="productName" class="form-control" formControlName="productName">
+        </md-input-container>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-input-container class="example-full-width">
+          <input mdInput placeholder="Website Link" id="website" class="form-control" formControlName="website">
+        </md-input-container>
+      </td>
+      <td>
+        <md-input-container class="example-full-width">
+          <input mdInput placeholder="Logo" id="logo" class="form-control" formControlName="logo">
+        </md-input-container>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <section class="example-section" [formGroup]="catGroup">
+          <md-checkbox class="example-margin" id="packaging" class="form-control" [value]="packaging" formControlName="packaging" (click)="category(0)">Packaging</md-checkbox>
+          <md-checkbox class="example-margin" id="labeling" class="form-control" [value]="labeling" formControlName="labeling" (click)="category(1)">Labeling</md-checkbox>
+          <md-checkbox class="example-margin" id="multipacks" class="form-control" [value]="multipacks" formControlName="multipacks" (click)="category(2)">Multipacks</md-checkbox>
+          <md-checkbox class="example-margin" id="clamshells" class="form-control" [value]="clamshells" formControlName="clamshells" (click)="category(3)">Clamshells</md-checkbox>
+          <md-checkbox class="example-margin" id="pouch" class="form-control" [value]="pouch" formControlName="pouch" (click)="category(4)">Pouch</md-checkbox>
+          <md-checkbox class="example-margin" id="lifeScience" class="form-control" [value]="lifeScience" formControlName="lifeScience" (click)="category(5)">Life Science</md-checkbox>
+        </section>
+      </td>
+    </tr>
+  </table>
+  <button type="submit" md-raised-button [disabled]="!createForm.valid">Add Product</button>
+
+</form>

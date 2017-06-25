@@ -17,7 +17,6 @@ export class ProductsService {
       .get('products')
       .map(res => res.json())
       .catch((error: Response) => Observable.throw(error));
-
   }
 
   createProduct(product: Product): Observable<void> {
@@ -38,7 +37,6 @@ export class ProductsService {
       .delete('/products/' + id)
       .map(res => res.json())
       .catch((error: Response) => Observable.throw(error));
-      
   }
 
 }

@@ -1,16 +1,40 @@
-<div fxLayout="column" *ngIf="productsPresent">
-  <md-card class="card" *ngFor="let product of products; let i = index;">
-    <md-card-content>
-      <p>{{product.city}}</p>
-      <p>{{product.productName}}</p>
-      <p>{{product.website}}</p>
-      <p>{{product.logo}}</p>
-    </md-card-content>
-    <md-card-actions>
-      <button md-raised-button (click)="onDelete(i)">Delete</button>
-    </md-card-actions>
-  </md-card>
-</div>
-<div fxLayout="column" *ngIf="!productsPresent && !isLoading">
-  <p>There are no products to display</p>
-</div>
+<section>
+  <div class="column" fxFlexAlign="center">
+    <form [formGroup]="catGroup">
+      <md-slide-toggle (change)="onSubmit(0)">Packaging</md-slide-toggle>
+      <md-slide-toggle (change)="onSubmit(1)">Labeling</md-slide-toggle>
+      <md-slide-toggle (change)="onSubmit(2)">Multipacks</md-slide-toggle>
+      <md-slide-toggle (change)="onSubmit(3)">Clamshells</md-slide-toggle>
+      <md-slide-toggle (change)="onSubmit(4)">Pouch</md-slide-toggle>
+      <md-slide-toggle (change)="onSubmit(5)">Life Science</md-slide-toggle>
+    </form>
+  </div>
+</section>
+<section>
+  <div fxLayout="column cards" *ngIf="productsPresent">
+    <div class="row">
+      <div *ngFor="let product of products; let i = index;">
+        <div class="col">
+          <md-card class="card">
+            <md-card-content>
+              <p>{{product.city}}</p>
+              <p>{{product.productName}}</p>
+              <p>{{product.website}}</p>
+              <p>{{product.logo}}</p>
+              <md-chip-list>
+                <md-chip *ngFor="let cat of product?.categories;">{{cat}}</md-chip>
+              </md-chip-list>
+            </md-card-content>
+            <md-card-actions>
+              <button md-raised-button (click)="onDelete(i)" *ngIf="!authService.isAdmin()">Delete</button>
+              <button md-raised-button (click)="onSplice(i)" *ngIf="authService.isLoggedIn()">Remove</button>
+            </md-card-actions>
+          </md-card>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="column" *ngIf="!productsPresent && !isLoading">
+      <p>There are no products to display</p>
+    </div>
+  </div>
+</section>

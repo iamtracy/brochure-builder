@@ -9,11 +9,15 @@ import { routing } from './app-routes';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MdToolbarModule } from '@angular/material';
 import { MdMenuModule } from '@angular/material';
+import { MdIconModule } from '@angular/material';
+import { MdInputModule } from '@angular/material';
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdCardModule } from '@angular/material';
 import { MdButtonModule } from '@angular/material';
-import { MdProgressSpinnerModule } from '@angular/material';
+import { MdCheckboxModule } from '@angular/material';
+import { MdChipsModule } from '@angular/material';
+import { MdSlideToggleModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
@@ -51,7 +55,11 @@ import { LoginComponent } from './auth/login/login.component';
     MdCardModule,
     MdButtonModule,
     FlexLayoutModule,
-    MdProgressSpinnerModule,
+    MdIconModule,
+    MdInputModule,
+    MdCheckboxModule,
+    MdChipsModule,
+    MdSlideToggleModule,
     routing
   ],
   providers: [ProductsService, AuthService],

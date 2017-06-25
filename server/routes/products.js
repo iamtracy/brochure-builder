@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Product = require('../models/product');
+var User = require('../models/user');
 
 //get all products
 router.get('/', (req, res, next) => {
@@ -25,11 +26,13 @@ router.get('/', (req, res, next) => {
 
 //create new product
 router.post('/', function(req, res, next) {
+  console.log(req.body);
   const newProduct = new Product({
     city: req.body.city,
     productName: req.body.productName,
     website: req.body.website,
-    logo: req.body.logo
+    logo: req.body.logo,
+    categories: req.body.categories
   });
   newProduct.save(function(err, result) {
     if (err) {
