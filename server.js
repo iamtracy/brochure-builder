@@ -11,6 +11,7 @@ mongoose.connect('mongodb://tleecoding:Hackthis!23@ds135522.mlab.com:35522/pmmi'
 // Get our API routes
 const productsRoute = require('./server/routes/products');
 const authRegisterRoute = require('./server/routes/auth-register');
+const authLoginRoute = require('./server/routes/auth-login');
 
 const app = express();
 
@@ -23,7 +24,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
 app.use('/products', productsRoute);
-app.use('/auth', authRegisterRoute);
+app.use('/register', authRegisterRoute);
+app.use('/login', authLoginRoute);
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));

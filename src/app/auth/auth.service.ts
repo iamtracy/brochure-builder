@@ -15,11 +15,29 @@ export class AuthService {
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({ headers: headers });
-    console.log(body);
     return this.http
-      .post('/auth/register', body, options)
+      .post('/register', body, options)
       .map(res => res.json())
       .catch((error: Response) => Observable.throw(error));
+  }
+
+  login(user: User) {
+      const body = JSON.stringify(user);
+      const headers = new Headers({'Content-Type': 'application/json'});
+      return this.http
+            .post('/login', body, {headers: headers})
+            .map(response => response.json())
+            .catch((error: Response) => {
+                return Observable.throw(error)
+            });
+  }
+
+  logout() {
+    localStorage.clear();
+  }
+
+  isLoggedIn() {
+    return localStorage.getItem('token') !== null;
   }
 
 }

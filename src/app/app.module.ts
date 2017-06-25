@@ -26,6 +26,7 @@ import { ResultComponent } from './products/result/result.component';
 import { CreateComponent } from './products/create/create.component';
 import { AuthComponent } from './auth/auth.component';
 import { UserComponent } from './auth/user/user.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UserComponent } from './auth/user/user.component';
     CreateComponent,
     ResultComponent,
     AuthComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
