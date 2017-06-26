@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 //Connect to database
-mongoose.connect('mongodb://tleecoding:Hackthis!23@ds135522.mlab.com:35522/pmmi');
+mongoose.connect('mongodb://tleecoding1:Hackthis1@ds135522.mlab.com:35522/pmmi');
 
 // Get our API routes
 const productsRoute = require('./server/routes/products');
