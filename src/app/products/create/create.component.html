@@ -1,0 +1,50 @@
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-sm-12 col-md-5">
+      <table class="example-full-width" cellspacing="0" [formGroup]="catGroup">
+        <section>
+          <tr>
+            <td>
+              <md-radio-button id="packaging" formControlName="packaging" (click)="getRadioVal(0)" ngDefaultControl>Packaging</md-radio-button>
+              <md-radio-button id="labeling" formControlName="labeling" (click)="getRadioVal(1)" ngDefaultControl>Labeling</md-radio-button>
+              <md-radio-button id="multipacks" formControlName="multipacks" (click)="getRadioVal(2)" ngDefaultControl>Multipacks</md-radio-button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <md-radio-button id="clamshells" formControlName="clamshells" (click)="getRadioVal(3)" ngDefaultControl>Clamshells</md-radio-button>
+              <md-radio-button id="pouch" formControlName="pouch" (click)="getRadioVal(4)" ngDefaultControl>Pouch</md-radio-button>
+              <md-radio-button id="lifeScience" formControlName="lifeScience" (click)="getRadioVal(5)" ngDefaultControl>Life Science</md-radio-button>
+            </td>
+          </tr>
+        </section>
+      </table>
+      <button type="submit" md-raised-button [disabled]="!createForm.valid || category === undefined">Add Product</button>
+    </div>
+    <div class="col-sm-12 col-md-7">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <md-input-container class="example-full-width">
+              <input mdInput placeholder="Booth Number" type="text" id="booth" class="form-control" formControlName="booth">
+            </md-input-container>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <md-input-container class="example-full-width">
+              <input mdInput placeholder="Product Name" type="text" id="productName" class="form-control" formControlName="productName">
+            </md-input-container>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <md-input-container class="example-full-width">
+              <input mdInput placeholder="Website Link" id="website" class="form-control" formControlName="website">
+            </md-input-container>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</form>

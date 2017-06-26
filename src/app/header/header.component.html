@@ -1,0 +1,18 @@
+<md-toolbar>
+  <div class="container">
+    <div class="button-row">
+      <button md-button [routerLink]="['/results']" routerLinkActive="active">Products</button>
+      <button md-button [routerLink]="['/create']" routerLinkActive="active" *ngIf="!authService.isAdmin()">Create</button>
+      <div class="menu-icon">
+        <button md-icon-button [mdMenuTriggerFor]="menu">
+          <md-icon>more_vert</md-icon>
+        </button>
+        <md-menu #menu="mdMenu">
+          <button md-menu-item [routerLink]="['/register']" *ngIf="!authService.isLoggedIn()">Register</button>
+          <button md-menu-item [routerLink]="['/login']" *ngIf="!authService.isLoggedIn()">Login</button>
+          <button md-menu-item (click)="authService.logout()" *ngIf="authService.isLoggedIn()">Logout</button>
+        </md-menu>
+      </div>
+    </div>
+  </div>
+</md-toolbar>

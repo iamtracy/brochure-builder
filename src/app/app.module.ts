@@ -1,33 +1,68 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+
+import { routing } from './app-routes';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MdToolbarModule } from '@angular/material';
+import { MdMenuModule } from '@angular/material';
+import { MdIconModule } from '@angular/material';
+import { MdInputModule } from '@angular/material';
+import 'hammerjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdCardModule } from '@angular/material';
+import { MdButtonModule } from '@angular/material';
+import { MdChipsModule } from '@angular/material';
+import { MdRadioModule } from '@angular/material';
+import { MdSlideToggleModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 
-import { ProductsService } from './products.service';
-
-
-const ROUTES = [{
-    path: '',
-    component: ProductsComponent
-  }
-];
+import { AuthService } from './auth/auth.service';
+import { ProductsService } from './products/products.service';
+import { HeaderComponent } from './header/header.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { ResultComponent } from './products/result/result.component';
+import { CreateComponent } from './products/create/create.component';
+import { AuthComponent } from './auth/auth.component';
+import { UserComponent } from './auth/user/user.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent
+    ProductsComponent,
+    HeaderComponent,
+    RegisterComponent,
+    CreateComponent,
+    ResultComponent,
+    AuthComponent,
+    UserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES)
+    BrowserAnimationsModule,
+    MdToolbarModule,
+    MdMenuModule,
+    MdCardModule,
+    MdButtonModule,
+    FlexLayoutModule,
+    MdIconModule,
+    MdInputModule,
+    MdRadioModule,
+    MdChipsModule,
+    MdSlideToggleModule,
+    routing
   ],
-  providers: [ProductsService],
+  providers: [ProductsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

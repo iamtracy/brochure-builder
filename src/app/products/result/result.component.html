@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-sm-12 col-md-4">
+    <section>
+      <div class="row">
+        <div class="col-12">
+          <h3>Filters:</h3>
+        </div>
+        <form [formGroup]="catGroup">
+          <div class="col-12">
+            <md-slide-toggle (change)="onSubmit(0)">Packaging</md-slide-toggle>
+            <md-slide-toggle (change)="onSubmit(1)">Labeling</md-slide-toggle>
+            <md-slide-toggle (change)="onSubmit(2)">Multipacks</md-slide-toggle>
+          </div>
+          <div class="col-12">
+            <md-slide-toggle (change)="onSubmit(3)">Clamshells</md-slide-toggle>
+            <md-slide-toggle (change)="onSubmit(4)">Pouch</md-slide-toggle>
+            <md-slide-toggle (change)="onSubmit(5)">Life Science</md-slide-toggle>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+  <div class="col-sm-12 col-md-8">
+    <section>
+      <div class="row">
+        <div class="cards" *ngIf="productsPresent" fxLayoutWrap>
+          <div *ngFor="let product of products; let i = index;">
+            <div class="col">
+              <md-card class="card">
+                <md-card-content>
+                  <h5>Booth: {{product.booth}}</h5>
+                  <p>{{product.productName}}</p>
+                  <p>
+                    <a href="//{{product.website}}" target="_blank">Website</a>
+                  </p>
+                  <md-chip-list>
+                    <md-chip>{{product.category}}</md-chip>
+                  </md-chip-list>
+                </md-card-content>
+                <md-card-actions>
+                  <button md-raised-button (click)="onDelete(i)" *ngIf="!authService.isAdmin()">Delete</button>
+                  <button md-raised-button (click)="onSplice(i)">Remove</button>
+                </md-card-actions>
+              </md-card>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="column" *ngIf="!productsPresent">
+          <p>Toggle filters to display product(s).</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
