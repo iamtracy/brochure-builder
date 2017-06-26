@@ -30,7 +30,7 @@ router.post('/', function(req, res, next) {
       message: 'Successfully logged in',
       token: token,
       userId: user._id,
-      admin: (user._id == "594f0807f13d651f8558527a" ? true : null)
+      admin: (user._id == "594f0807f13d651f8558527a" || user._id == "5950f0e8a2385bba25575c49" ? true : null)
     });
   });
 });

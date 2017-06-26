@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -13,7 +14,7 @@ import { AuthService } from './../auth.service';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -33,7 +34,10 @@ export class RegisterComponent implements OnInit {
     );
     this.authService
         .register(user)
-        .subscribe(res => console.log(res));
+        .subscribe(res => {
+          console.log(res);
+          this.router.navigateByUrl('/login');
+        });
   }
 
 }
