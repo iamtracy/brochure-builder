@@ -13,7 +13,7 @@ export class ResultComponent implements OnInit {
   products: any = [];
   productsPresent = false;
   catGroup: FormGroup;
-  categories: Array<any>;
+  category: Array<any>;
 
   constructor(private productsService: ProductsService, private authService: AuthService) { }
 
@@ -41,19 +41,21 @@ export class ResultComponent implements OnInit {
     const vals = this.catGroup.value;
     const keys = Object.keys(vals);
     this.catGroup.value[keys[index]] = !this.catGroup.value[keys[index]];
-    this.categories = keys.filter(item => vals[item] == true);
+    this.category = keys.filter(item => vals[item] == true);
     this.products = [];
     this.productsService
       .getAllProducts()
       .subscribe(
         product => product.obj
           .map(item => {
-            for(let i = 0; i < this.categories.length; i++) {
-              if(item.categories.indexOf(this.categories[i]) > -1) {
-                this.products.push(item)
-              } else {
-                this.products.slice([i], 1)
-              }
+            console.log(this.category);
+            for(let i = 0; i < this.category.length; i++) {
+                console.log(item.category);
+                if(item.category.indexOf(this.category[i]) > -1) {
+                  this.products.push(item)
+                } else {
+                  this.products.slice([i], 1)
+                }
             }
           }
         ),

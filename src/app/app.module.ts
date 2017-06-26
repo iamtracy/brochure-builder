@@ -15,8 +15,8 @@ import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdCardModule } from '@angular/material';
 import { MdButtonModule } from '@angular/material';
-import { MdCheckboxModule } from '@angular/material';
 import { MdChipsModule } from '@angular/material';
+import { MdRadioModule } from '@angular/material';
 import { MdSlideToggleModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -57,7 +57,7 @@ import { LoginComponent } from './auth/login/login.component';
     FlexLayoutModule,
     MdIconModule,
     MdInputModule,
-    MdCheckboxModule,
+    MdRadioModule,
     MdChipsModule,
     MdSlideToggleModule,
     routing

@@ -26,13 +26,12 @@ router.get('/', (req, res, next) => {
 
 //create new product
 router.post('/', function(req, res, next) {
-  console.log(req.body);
   const newProduct = new Product({
-    city: req.body.city,
+    booth: req.body.booth,
     productName: req.body.productName,
     website: req.body.website,
     logo: req.body.logo,
-    categories: req.body.categories
+    category: req.body.category
   });
   newProduct.save(function(err, result) {
     if (err) {

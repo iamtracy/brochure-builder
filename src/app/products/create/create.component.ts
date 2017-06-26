@@ -14,17 +14,18 @@ import { ProductsService } from './../products.service';
 export class CreateComponent implements OnInit {
   createForm: FormGroup;
   catGroup: FormGroup;
-  categories: Array<any>;
+  category: string;
 
   constructor(private productService: ProductsService) { }
 
   onSubmit() {
+    console.log(this.category, this.catGroup);
     const newProduct = new Product(
-      this.createForm.value.city, 
+      this.createForm.value.booth, 
       this.createForm.value.productName,
       this.createForm.value.website,
       this.createForm.value.logo,
-      this.categories
+      this.category
     );
     this.productService
       .createProduct(newProduct)
@@ -34,7 +35,7 @@ export class CreateComponent implements OnInit {
 
   ngOnInit() {
     this.createForm = new FormGroup({
-            city: new FormControl(null, Validators.required),
+            booth: new FormControl(null, Validators.required),
             productName: new FormControl(null, Validators.required),
             website: new FormControl(null, Validators.required),
             logo: new FormControl(null, Validators.required),
@@ -49,11 +50,13 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  category(index) {
+  getRadioVal(index) {
     const vals = this.catGroup.value;
     const keys = Object.keys(vals);
     this.catGroup.value[keys[index]] = !this.catGroup.value[keys[index]];
-    this.categories = keys.filter(item => vals[item] == true);
+    this.category = keys.filter(item => vals[item] == true)[0];
   }
+
+  
 
 }
