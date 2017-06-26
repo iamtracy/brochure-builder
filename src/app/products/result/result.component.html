@@ -33,14 +33,13 @@
                   <p>
                     <a href="//{{product.website}}" target="_blank">Website</a>
                   </p>
-                  <img md-card-image src="{{product.logo}}" />
                   <md-chip-list>
-                    <md-chip *ngFor="let cat of product?.categories;">{{cat}}</md-chip>
+                    <md-chip>{{product.category}}</md-chip>
                   </md-chip-list>
                 </md-card-content>
                 <md-card-actions>
                   <button md-raised-button (click)="onDelete(i)" *ngIf="!authService.isAdmin()">Delete</button>
-                  <button md-raised-button (click)="onSplice(i)" *ngIf="authService.isLoggedIn()">Remove</button>
+                  <button md-raised-button (click)="onSplice(i)">Remove</button>
                 </md-card-actions>
               </md-card>
             </div>

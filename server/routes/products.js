@@ -30,7 +30,6 @@ router.post('/', function(req, res, next) {
     booth: req.body.booth,
     productName: req.body.productName,
     website: req.body.website,
-    logo: req.body.logo,
     category: req.body.category
   });
   newProduct.save(function(err, result) {

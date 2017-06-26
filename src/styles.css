@@ -3,6 +3,9 @@
 section {
   margin: 2rem 0;
 }
+.content {
+  margin-top: .9rem;
+}
 .menu-icon {
   float: right;
 }

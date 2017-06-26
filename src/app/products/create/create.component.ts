@@ -24,13 +24,13 @@ export class CreateComponent implements OnInit {
       this.createForm.value.booth, 
       this.createForm.value.productName,
       this.createForm.value.website,
-      this.createForm.value.logo,
       this.category
     );
     this.productService
       .createProduct(newProduct)
       .subscribe(res => console.log(res))
     this.createForm.reset();
+    this.catGroup.reset();
   }
 
   ngOnInit() {
@@ -38,7 +38,6 @@ export class CreateComponent implements OnInit {
             booth: new FormControl(null, Validators.required),
             productName: new FormControl(null, Validators.required),
             website: new FormControl(null, Validators.required),
-            logo: new FormControl(null, Validators.required),
     });
     this.catGroup = new FormGroup({
       packaging: new FormControl(),

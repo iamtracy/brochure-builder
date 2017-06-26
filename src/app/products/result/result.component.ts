@@ -18,15 +18,15 @@ export class ResultComponent implements OnInit {
   constructor(private productsService: ProductsService, private authService: AuthService) { }
 
   ngOnInit() {
-    // this.productsService
-    //   .getAllProducts()
-    //   .subscribe(
-    //     product => this.products = product.obj,
-    //     err => console.log(err),
-    //     () => {
-    //       this.products.length > 0 ? this.productsPresent = true : this.productsPresent = false;
-    //     }
-    //   );
+    this.productsService
+      .getAllProducts()
+      .subscribe(
+        product => this.products = product.obj,
+        err => console.log(err),
+        () => {
+          this.products.length > 0 ? this.productsPresent = true : this.productsPresent = false;
+        }
+      );
     this.catGroup = new FormGroup({
       packaging: new FormControl(),
       labeling: new FormControl(),
@@ -48,9 +48,7 @@ export class ResultComponent implements OnInit {
       .subscribe(
         product => product.obj
           .map(item => {
-            console.log(this.category);
             for(let i = 0; i < this.category.length; i++) {
-                console.log(item.category);
                 if(item.category.indexOf(this.category[i]) > -1) {
                   this.products.push(item)
                 } else {
