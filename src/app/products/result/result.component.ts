@@ -18,15 +18,6 @@ export class ResultComponent implements OnInit {
   constructor(private productsService: ProductsService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.productsService
-      .getAllProducts()
-      .subscribe(
-        product => this.products = product.obj,
-        err => console.log(err),
-        () => {
-          this.products.length > 0 ? this.productsPresent = true : this.productsPresent = false;
-        }
-      );
     this.catGroup = new FormGroup({
       packaging: new FormControl(),
       labeling: new FormControl(),
