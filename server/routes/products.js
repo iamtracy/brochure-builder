@@ -46,4 +46,37 @@ router.post('/', function(req, res, next) {
   });
 });
 
+//create new product
+router.delete('/:id', function(req, res, next) {
+  console.log(req.params.id);
+  Product.findById(req.params.id, function(err, message) {
+    console.log(message);
+    if (err) {
+      return res.status(500).json({
+        title: 'An error occured',
+        error: err
+      });
+    }
+    if (!message) {
+      return res.status(500).json({
+        title: 'no message found',
+        error: { message: 'Message not found' }
+      });
+    }
+    message.remove((err, result) => {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occured',
+          error: err
+        });
+      }
+      res.status(201).json({
+        message: 'Product deleted',
+        obj: result
+      });
+    })
+
+  });
+});
+
 module.exports = router;
